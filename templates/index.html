@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <title>Video Streaming Demonstration</title>
+  </head>
+  <body>
+    <div>
+    <h1>Video Feed</h1>
+    <img src="{{ url_for('video_feed') }}">
+
+    </div>
+
+    <div>
+      <form action="/message" method="POST" id='form'>
+        <br><br>
+        <input type="button" value="Clear to go" onclick="set('Clear to go')">
+      <input type="button" value="Wait" onclick="set('wait')">
+      <br><br>
+      <input type="text" id="chat" name="chat">
+
+      <!-- <input type="button" value="" onclick="set()"> -->
+      <!-- <input type="submit" onclick="sub()" value="send">       -->
+      <button type="button" value="send" onclick="sub()">  send</button>
+    </form>
+
+      </div>
+      <script>
+        // window.onload=function(){
+        //   var ch = document.getElementById('chat');
+        //   ch.value='';
+        //   // getElementById('form').submit;
+        // }
+          function set(x)
+          {
+            document.getElementById('chat').value=x;
+            sub();
+            return false;
+          }
+        function sub()
+        {
+          // console.log('wat')
+          console.log(document.getElementById('chat').value)
+          document.getElementById('form').submit();
+          document.getElementById('form').reset();
+          return false; 
+          // document.getElementById('chat').value='';
+        }
+        </script>
+  </body>
+</html>
